@@ -1,0 +1,40 @@
+﻿@{
+    Layout = null;    
+    ViewBag.Title = "AnsLike";
+}
+@using project.Models;
+@{
+    string namee = Session["Instructor"].ToString();
+    DatabaseEntities3 ed = new DatabaseEntities3();
+    var usrrr = ed.Users.FirstOrDefault(x => x.FirstN.Equals(namee));
+    int id = ViewBag.idd;
+
+    var a1 = ed.AnsLikes.Where(x => x.Ans_Id == id && x.Status == 1).Select(x => x).ToList();
+    if (a1.Count != 0)
+    {
+        <span>(@a1.Count Likes)</span>
+    }
+
+    int flag = 0;
+    foreach (var aa in a1)
+    {
+        if (aa.User_Id == usrrr.Id && aa.Status == 1)
+        {
+            flag = 1;
+            <button class="btn-xs" onclick="ansunrating(@id)">Unlike</button>
+
+            break;
+        }
+        else if (aa.User_Id == usrrr.Id && aa.Status == 0)
+        {
+            flag = 1;
+            <button class="btn-xs" onclick="ansrating(@id)">Like</button>
+            break;
+        }
+
+    } if (flag == 0)
+    {
+        <button class="btn-xs" onclick="ansrating(@id)">Like</button>
+
+    }
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c368a34d7c6c4440a09a9d14bda4e168" Name="Diagram1">
+        <EntityTypeShape EntityType="DatabaseModel.Announcement" Width="1.5" PointX="7.5" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.AnsLike" Width="1.5" PointX="3" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Answer" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Comment" Width="1.5" PointX="9.75" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Instructor" Width="1.5" PointX="3" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Like" Width="1.5" PointX="9.75" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Question" Width="1.5" PointX="7.5" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Request" Width="1.5" PointX="10.5" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Resource" Width="1.5" PointX="7.5" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.SClass" Width="1.5" PointX="5.25" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Student" Width="1.5" PointX="3" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.StudentClass" Width="1.5" PointX="10.5" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.User" Width="1.5" PointX="0.75" PointY="13.25" IsExpanded="true" />
+        <AssociationConnector Association="DatabaseModel.FK_Announcement_ToSClass" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_Comments_ToAnnouncement" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_AnsLike_ToAnswer" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_AnsLike_ToUser" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_Answer_ToQuestion" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_Answer_ToUser" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_Comments_ToUser" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_Instructor_ToUser" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_SClass_ToInstructor" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_Like_ToQues" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_Like_ToUser" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_Question_ToSClass" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_Question_ToStudent" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_Request_ToTableSClass" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_Request_ToTableStudent" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_Resource_ToSClass" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_StudentClass_ToSClass" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_Student_ToUser" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_StudentClass_ToStudent" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

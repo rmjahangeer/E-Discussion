@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "ModifyAnnouncment";
+}
+
+<div class="container" style="margin-top:10%;padding-left:14%;">
+
+    <div style="text-align:center;padding:15px;border-radius:30px;background-color:rgba(191, 216, 216,0.5);width:780px;height:auto;">
+        <div>
+            <span style="color:rgb(28, 5, 87);font-size:x-large;font-family: cursive;">Modify an Announcment</span><br><br>
+
+            <form role="form" class="form-inline" method="post" action="/Instructor/ModifyA">
+
+                <input type="text" name="class" placeholder="Class" class="form-control">
+
+                &nbsp<input type="text" name="subject" placeholder="Subject of Announcement" class="form-control"><br><br>
+
+                <textarea class="form-control" name="announcement" placeholder="Announcement" rows="5" cols="51" id="comment"></textarea>
+                <br><br>
+
+                <input type="submit" class="btn btn-info" value="Modify" />
+
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+</div>

@@ -1,0 +1,80 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+    ViewBag.Title = "Classes";
+}
+@using project.Models
+
+<div class="" style="margin-top:10%;margin-left:20%;margin-right:49%;">
+
+    <div style="padding:15px;border-radius:30px;background-color:rgba(191, 216, 216,0.5);width:780px;height:auto;padding-left:45%;">
+        <div>
+            <span style="color:rgb(28, 5, 87);font-size:x-large;margin-left:25%;font-family: cursive;">Classes</span>
+            <br><br>
+            <table border="0">
+                @if (ViewBag.data != null)
+                {
+                    foreach (var i in ViewBag.data)
+                    {
+
+                        <tr>
+                            <td>
+                                <textarea rows="3" cols="40" class="form-control" disabled="disabled" name="question" id="comment">@i.NameOfClass</textarea>
+                            </td>
+
+                            <td>
+                                <form method="post" action="@Url.Action("DeleteC", "Instructor")">
+                                    <input type="hidden" value="@i.NameOfClass" name="class" />
+
+                                    <button type="submit" class="btn text-primary">Delete Class</button>
+                                </form>
+
+                            </td>
+                            
+                        </tr>
+                    }
+                }
+
+
+            </table>
+            <br>
+            <div>
+                <!-- Trigger the modal with a button -->
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Add New Class</button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Add New Class</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form role="form" class="form-inline" method="post" action="/Instructor/AddC">
+
+                                    <input type="text" name="class" placeholder="Class" class="form-control">
+                                    <br><br>
+
+                                    <input type="submit" class="btn btn-warning" value="Add" />
+
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</div>

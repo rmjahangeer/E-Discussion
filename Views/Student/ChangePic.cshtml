@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+        ViewBag.Title = "ChangePic";
+}
+@using project.Models;
+<div class="container" style="margin-top:10%;padding-left:15%;">
+
+    <div style="padding:15px;border-radius:30px;background-color:rgba(191, 216, 216,0.5);width:780px;height:auto;">
+        <div style="text-align:center;">
+            <span style="color:rgb(28, 5, 87);font-size:x-large;font-family: cursive;">Change Profile Picture</span><br><br>
+
+                @{
+                    DatabaseEntities3 ed = new DatabaseEntities3();
+                    string name = Session["Student"].ToString();
+                    User u = ed.Users.FirstOrDefault(x => x.FirstN.Equals(name));
+
+                    <img src="~/Content/dp/@u.Image" width="100" height="100" />
+                }
+            <br><br>
+                <form role="form" class="form-inline" style="width:35%;margin-left:32%;" method="post" action="/Student/ChangePro" enctype="multipart/form-data">
+
+                    <input type="file" class="form-control" style="width:85%;" name="FileUpload" />
+                    <input type="submit" class="btn btn-info" value="Upload" />
+
+                </form>
+            
+        </div>
+    </div>
+</div>

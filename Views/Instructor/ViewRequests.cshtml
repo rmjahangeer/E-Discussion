@@ -1,0 +1,97 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "ViewRequests";
+}
+@using project.Models;
+@section Scripts
+{
+}
+<div class="" style="margin-top:10%;padding-left:21%;">
+
+    <div style="padding:15px;border-radius:30px;background-color:rgba(191, 216, 216,0.5);width:780px;height:auto;padding-left:13%;">
+        <div >
+            <span style="color:rgb(28, 5, 87);font-size:x-large;margin-left:30%;font-family: cursive;">Requests</span><br><br>
+
+            <table border="1" style="border-color:white;">
+                <tr>
+                    <td style="padding:8px;">
+                        <span style="color:rgb(28, 5, 87);font-size:large;">
+                            Class
+                        </span>
+
+                    </td>
+                    <td style="padding:8px;">
+                        <span style="color:rgb(28, 5, 87);font-size:large;">Student</span>
+                    </td>
+
+                    <td style="padding:8px;">
+                        <span style="color:rgb(28, 5, 87);font-size:large;">Request Status</span>
+                    </td>
+                </tr>
+
+                @foreach (Request i in ViewBag.req)
+                {
+                    <tr>
+                        <td style="padding:8px;">
+                            @foreach (SClass sc in ViewBag.cls)
+                            {
+                                if (sc.Id == i.C_Id)
+                                {
+                                    <span style="color:white;">@sc.NameOfClass</span>
+                                }
+                            }
+                        </td>
+                        <td style="padding:8px;">
+                            @foreach (Student i1 in ViewBag.std)
+                            {
+                                int flag = 0;
+                                if (i1.Id == i.Std_Id)
+                                {
+                                    foreach (User u in ViewBag.usr)
+                                    {
+                                        if (i1.User_Id == u.Id)
+                                        {
+                                            <span style="color:white;">@u.FirstN</span>
+                                            flag = 1;
+                                            break;
+                                        }
+                                    }
+                                    if (flag == 1)
+                                    {
+                                        break;
+                                    }
+
+                                }
+                            }
+                        </td>
+
+                        <td style="padding:8px;">
+
+                            <form method="post">
+                                <input type="hidden" name="SId" value="@i.Std_Id" />
+                                <input type="hidden" name="CId" value="@i.C_Id" />
+                                @if (i.Accept == 0)
+                                {
+                                    <input type="submit" class="btn btn-info" data-dismiss="modal" value="Accept" formaction="/Instructor/AcceptReq">
+                                }
+                                else
+                                {
+                                    <input type="submit" class="btn btn-info disabled" data-dismiss="modal" value="Accepted">
+
+                                }
+                                <input type="submit" class="btn btn-info" data-dismiss="modal" value="Cancel" formaction="/Instructor/CancelReq" />
+
+
+
+                            </form>
+                        </td>
+                    </tr>
+
+                }
+            </table>
+
+
+        </div>
+    </div>
+
+</div>

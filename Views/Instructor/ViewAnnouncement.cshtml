@@ -1,0 +1,83 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "ViewAnnouncement";
+}
+
+@using project.Models;
+
+@section Scripts{
+
+
+}
+<div class="" style="margin-top:10%;margin-left:26%;margin-right:50%;">
+
+    <div class="row" style="padding:15px;border-radius:30px;background-color:rgba(191, 216, 216,0.5);width:680px;height:auto;padding-left:35%;">
+        <div class="col-md-12">
+
+            <table border="0">
+                <tr>
+                    <td colspan="2">
+                        <span style="color:rgb(28, 5, 87);font-size:x-large;margin-left:28%;font-family: cursive;">Announcements</span>
+                   <br><br>
+                    </td>
+                    </tr>
+                @foreach (Announcement i in ViewBag.announcement)
+                {
+                    <tr>
+                       <td>
+                            @foreach (SClass ss in ViewBag.clss)
+                            {
+                                if (i.Class_Id == ss.Id)
+                                {
+                                    foreach (Instructor inss in ViewBag.ins)
+                                    {
+                                        if (ss.Instructor_Id == inss.Id)
+                                        {
+                                            foreach (User uss in ViewBag.usr)
+                                            {
+                                                if (uss.Id == inss.User_Id)
+                                                {
+                                                    <div style="background-color:rgba(243, 246, 246,0.7);border-radius:10px;padding:2px;">
+                                                    <img src="~/Content/dp/@uss.Image" width="50" height="50" style="margin-top:3px;border-radius:10px;"><span style="color:rgb(28, 5, 87);font-size:medium;"> @uss.FirstN (@ss.NameOfClass)</span>
+                                                    <br><span style="color:rgb(28, 5, 87);font-size:medium;">@i.Announcement1</span>
+                                                        </div>
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        </td>                           
+                    </tr>
+                 <tr>
+                     <td style="padding:8px;">
+                     @foreach (Comment c in ViewBag.comment)
+                     {
+                         if (c.Announcement_Id == i.Id) {
+                             foreach (User uu in ViewBag.usr) {
+                                 if (uu.Id == c.User_Id) {  
+                                   <img src="~/Content/dp/@uu.Image" width="50" height="50" style="margin-top:3px;border-radius:50px;"><span style="color:white;padding:15px;"><span style="color:rgb(28, 5, 87);">@uu.FirstN (@uu.UserType): </span>@c.Comment1</span><br>
+                                 }
+                             }
+                         }
+                     }
+                         <br>
+                         <form action="/Instructor/Announcement?name=@i.Id" method="post">
+                        <textarea class="form-control" name="1+@i.Id" placeholder="Comment here ..."></textarea><br>
+                            
+                         <input type="submit" style="width:20%;" class="form-control btn btn-primary" value="Comment">
+                             </form>
+                         <hr/>
+                         </td>
+                     </tr>
+                    
+                       
+                    
+                }
+            </table>
+  
+
+        </div>
+    </div>
+    
+</div>

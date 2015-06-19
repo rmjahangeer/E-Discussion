@@ -1,0 +1,83 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    ViewBag.Title = "Register";
+}
+@model project.Models.User
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryui")
+@Scripts.Render("~/bundles/jqueryval")
+
+    <style>
+    
+        .field-validation-error{
+            color:gold;
+        }
+    </style>
+<div class="">
+    <div style="position:relative;">
+        <nav class="navbar navbar-fixed-top" role="navigation" style="background-color:rgb(2, 29, 48);padding-left:60px;padding-right:50px;border-style:solid;border-width:3px;border-bottom-color:rgb(247, 245, 245);">
+            <div class="navbar-header">
+                <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+              <!--  <a href="#" class="navbar-brand h3"><span class="text-muted" style="font-size:xx-large;color:rgb(235, 233, 233);font-family: cursive;">E-<span style="color: rgb(207, 207, 207);font-family: cursive;">discussion</span></span></a>-->
+                <a href="#" class="navbar-bran h3"><img src="~/Content/logo.png" height="60" style="opacity:0.8;"></a>
+
+            </div>
+            <!--/.navbar-header-->
+            <!--/.navbar-collapse-->
+        </nav>
+    </div>
+
+    <div class="jumbotron" style="border-radius:140px;width:550px;height:auto;margin-top:155px;margin-left:30%;margin-right:50%;background-color:rgba(191, 216, 216,0.5);padding-left:73px;margin-bottom:100px;">
+
+        <span class="text-danger" style="font-size:28px;color: rgb(207, 207, 207);margin-top:0px;font-family: cursive;margin-left:31%;">Sign Up</span>
+        <br><br>
+        <form role="form" class="form-inline" method="post" action="/Home/Instructor" enctype="multipart/form-data">
+            @Html.ValidationMessageFor(x=>x.FirstN)
+            <br>
+            @Html.TextBoxFor(x => x.FirstN, new { @class="form-control", @placeholder="First Name"})
+            @*<input type="text" name="fname" placeholder="First Name" class="form-control"/>*@
+            &nbsp
+            @Html.TextBoxFor(x => x.LastN, new { @class = "form-control", @placeholder = "Last Name" })
+            @*<input type="text" name="lname" placeholder="Last Name" class="form-control">*@<br><br>
+            
+            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @placeholder = "Email",@style="width:85%;" })
+            @*<input type="email" name="email" placeholder="Email" class="form-control" style="width:84%;">*@
+            <br><br>
+
+            @Html.PasswordFor(x => x.Password, new { @class = "form-control", @placeholder = "Password" })
+            @*<input type="password" name="pass" placeholder="Password" class="form-control">*@
+
+            &nbsp
+            <input type="password" name="cpass" placeholder="Confirm Password" class="form-control"><br><br>
+
+            <input type="file" class="form-control" style="width:85%;" name="FileUpload" /><br /><br>
+
+            <input type="submit" class="btn btn-warning" value="Register" />
+            &nbsp @*<input type="radio" class="form-control" name="gender" value="male" />*@@* &nbsp <input type="radio" name="gender" value="female" class="form-control" /><span style="color:white;">Female</span>*@
+            @Html.RadioButtonFor(x => x.Gender,"male" ,new { @class = "form-control"})
+            <span style="color:white;">Male</span>
+            @Html.RadioButtonFor(x => x.Gender,"female" ,new { @class = "form-control"})
+            <span style="color:white;">Female</span>
+            &nbsp <span style="color:white;">|</span>
+            &nbsp @*<input type="radio" class="form-control" name="user" value="instructor" />*@
+            @Html.RadioButtonFor(x => x.UserType, "instructor" ,new { @class = "form-control" })
+            <span style="color:white;">Instructor</span> &nbsp 
+            @Html.RadioButtonFor(x => x.UserType, "student",new { @class = "form-control"})
+            @*<input type="radio" name="user" value="student" class="form-control" />*@<span style="color:white;">Student</span>
+        </form>
+    </div>
+
+    <footer class="navbar-fixed-bottom">
+        <div style="width:100%;height:24px;background-color:rgb(2, 29, 48);">
+
+        </div>
+    </footer>
+
+</div>
+
