@@ -1,24 +1,16 @@
 ﻿<!DOCTYPE html>
 <html>
-    <head>
+<head>
 
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width" />
-        <title>@ViewBag.Title</title>
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-        <link href="~/Content/bootstrap.css" rel="stylesheet" />
-        <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
-        
-        <style>
-            #main {
-                background: url('/Content/bg2.jpg') no-repeat;
-                -ms-background-size: 100% auto;
-                background-size: 100% auto;
-            }
-        </style>
-    </head>
-    <body id="main">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+</head>
+<body style="background:url(../../Content/bg2.jpg);background-repeat:no-repeat;background-size:100% auto;">
     @RenderBody()
 
     @Scripts.Render("~/bundles/jquery")
